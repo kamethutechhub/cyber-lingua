@@ -1,7 +1,7 @@
 <!-- 
     OCH CyberLingua | The C-Suite Translator
     Built by Martin M. Kamethu for Ongoza Cyber Hub
-    Version 2.8 (Standard Layout + Hero Explainer)
+    Version 2.12 (Elaborative Guide Update)
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -20,9 +20,7 @@
             color: #e2e8f0; /* Slate 200 */
         }
         
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
 
         .gradient-text {
             background: linear-gradient(to right, #22d3ee, #34d399);
@@ -48,350 +46,279 @@
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
         }
 
-        .scenario-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="h-screen w-screen overflow-hidden flex flex-col bg-slate-950">
 
     <!-- Header -->
-    <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                
-                <!-- Brand & Author Section -->
-                <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-start">
-                    <!-- Logo & App Name -->
-                    <div class="flex items-center gap-3">
-                        <div class="relative">
-                            <div class="absolute inset-0 bg-cyan-500 blur-sm opacity-20 rounded-full"></div>
-                            <i data-lucide="shield-check" class="text-cyan-400 h-8 w-8 relative z-10"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-xl font-bold tracking-tight text-white leading-none">OCH <span class="gradient-text">CyberLingua</span></h1>
-                            <p class="text-[10px] text-slate-500 font-mono mt-0.5 tracking-wider uppercase">Powered by Ongoza Cyber Hub</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Divider (Hidden on mobile) -->
-                    <div class="hidden md:block h-10 w-px bg-slate-800"></div>
-
-                    <!-- Cyber Leader Branding (Desktop) -->
-                    <div class="hidden md:block">
-                        <h2 class="text-sm font-semibold text-slate-200">Martin M. Kamethu</h2>
-                        <div class="flex items-center gap-1.5 mt-0.5">
-                            <i data-lucide="compass" class="h-3 w-3 text-amber-400"></i>
-                            <span class="text-[10px] font-medium tracking-wide text-slate-400">
-                                Curious about the Intersection of <span class="text-cyan-400 font-bold">Cyber</span>, <span class="text-emerald-400 font-bold">AI</span> & <span class="text-rose-400 font-bold">Risk</span>
-                            </span>
-                        </div>
+    <header class="border-b border-slate-800 bg-slate-900/90 shrink-0 z-50 h-16 flex items-center">
+        <div class="w-full px-4 flex justify-between items-center">
+            
+            <!-- Brand & Author Section -->
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="text-cyan-400 h-7 w-7"></i>
+                    <div>
+                        <h1 class="text-lg font-bold text-white tracking-tight leading-none">OCH <span class="gradient-text">CyberLingua</span></h1>
+                        <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest">Powered by Ongoza Cyber Hub</p>
                     </div>
                 </div>
+                
+                <div class="h-8 w-px bg-slate-800 hidden md:block"></div>
 
-                <!-- Right Side: Controls & Connect -->
-                <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+                <div class="hidden md:flex flex-col justify-center">
+                    <h2 class="text-xs font-semibold text-slate-300">Martin M. Kamethu</h2>
+                    <div class="flex items-center gap-1.5">
+                        <i data-lucide="compass" class="h-3 w-3 text-amber-400"></i>
+                        <span class="text-[10px] font-medium tracking-wide text-slate-400">
+                            Curious about the Intersection of <span class="text-cyan-400 font-bold">Cyber</span>, <span class="text-emerald-400 font-bold">AI</span> & <span class="text-rose-400 font-bold">Risk</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Controls & Connect -->
+            <div class="flex items-center gap-3">
+                <div class="md:hidden flex flex-col text-right mr-2">
+                    <span class="text-[10px] font-semibold text-slate-200">Martin M. Kamethu</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1 bg-slate-800/80 px-2 py-1 rounded-full border border-slate-700/50 shadow-sm">
+                        <a href="https://www.linkedin.com/in/martin-m-kamethu-b703a666/" target="_blank" class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded-full transition-all" title="LinkedIn">
+                            <i data-lucide="linkedin" class="h-3.5 w-3.5"></i>
+                        </a>
+                        <a href="https://www.ongozacyberhub.org/" target="_blank" class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded-full transition-all" title="Ongoza Cyber Hub">
+                            <i data-lucide="globe" class="h-3.5 w-3.5"></i>
+                        </a>
+                    </div>
+
+                    <div class="hidden lg:flex items-center gap-2 text-[10px] font-mono text-slate-500 bg-slate-950 px-3 py-1 rounded-md border border-slate-800" id="systemStatus">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        LOCAL MODE
+                    </div>
                     
-                    <!-- Cyber Leader Branding (Mobile Only) -->
-                    <div class="md:hidden flex flex-col">
-                        <span class="text-xs font-semibold text-slate-200">Martin M. Kamethu</span>
-                        <span class="text-[9px] text-slate-400">Curious about Cyber, AI & Risk</span>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <!-- Connection Links Pill -->
-                        <div class="flex items-center gap-1 bg-slate-800/80 px-2 py-1.5 rounded-full border border-slate-700/50 shadow-sm">
-                            <a href="https://www.linkedin.com/in/martin-m-kamethu-b703a666/" target="_blank" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-700 transition-all" title="LinkedIn">
-                                <i data-lucide="linkedin" class="h-4 w-4"></i>
-                            </a>
-                            <a href="https://www.ongozacyberhub.org/" target="_blank" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-700 transition-all" title="Ongoza Cyber Hub">
-                                <i data-lucide="globe" class="h-4 w-4"></i>
-                            </a>
-                        </div>
-
-                        <!-- System Status -->
-                        <div class="hidden lg:flex items-center gap-2 text-[10px] font-mono text-slate-500 bg-slate-900 px-3 py-1.5 rounded-md border border-slate-800" id="systemStatus">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            LOCAL MODE
-                        </div>
-                        
-                        <!-- Settings -->
-                        <button onclick="toggleSettings()" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-cyan-400">
-                            <i data-lucide="settings" class="h-5 w-5"></i>
-                        </button>
-                    </div>
+                    <button onclick="toggleSettings()" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-cyan-400">
+                        <i data-lucide="settings" class="h-5 w-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- HERO EXPLAINER (One-Liner Version) -->
+    <section class="bg-slate-950 border-b border-slate-800 py-3 shrink-0">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <p class="text-xs md:text-sm text-slate-400 font-medium">
+                Bridge the gap between the <span class="text-cyan-400 font-bold">Server Room</span> & the <span class="text-emerald-400 font-bold">Boardroom</span> by translating technical noise into strategic narratives.
+            </p>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full gap-8 grid lg:grid-cols-12">
+    <main class="flex-1 flex overflow-hidden p-4 gap-4">
         
-        <!-- Left Panel: Inputs -->
-        <div class="lg:col-span-4 space-y-6">
-            <div class="card p-6 rounded-2xl border-t-4 border-t-cyan-500/50">
-                <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="sliders" class="h-5 w-5 text-cyan-400"></i>
-                    Configure Strategic Narrative
+        <!-- SIDEBAR -->
+        <aside class="w-80 shrink-0 bg-slate-900 border-r border-slate-800 rounded-xl flex flex-col overflow-y-auto p-4 gap-4">
+            
+            <!-- Configuration Card -->
+            <div class="card p-5 rounded-xl border-t-2 border-t-cyan-500/50">
+                <h2 class="text-sm font-bold text-white mb-4 flex items-center gap-2 uppercase tracking-wider">
+                    <i data-lucide="sliders" class="h-4 w-4 text-cyan-400"></i> Configure Narrative
                 </h2>
                 
-                <!-- Topic Selection (Combo Box) -->
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-2 flex items-center gap-2">
-                            <i data-lucide="alert-triangle" class="h-3 w-3 text-red-400"></i> 1. What is the Threat?
-                        </label>
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1">1. What is the Threat?</label>
                         <div class="relative group">
-                            <input list="topics" id="topicInput" placeholder="Select or Type custom risk..." 
-                                class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 outline-none transition-all placeholder-slate-600">
+                            <input list="topics" id="topicInput" placeholder="Select or Type..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 outline-none placeholder-slate-600 transition-colors">
                             <datalist id="topics">
-                                <option value="Agentic AI">
-                                <option value="Non-Human Identity">
-                                <option value="Ransomware">
-                                <option value="Third-Party Risk">
-                                <option value="Zero Trust">
+                                <option value="Agentic AI"><option value="Non-Human Identity"><option value="Ransomware"><option value="Third-Party Risk"><option value="Zero Trust">
                             </datalist>
-                            <i data-lucide="search" class="absolute right-3 top-3.5 h-4 w-4 text-slate-600 group-hover:text-cyan-500 transition-colors"></i>
+                            <i data-lucide="search" class="absolute right-2 top-2.5 h-3.5 w-3.5 text-slate-600 group-hover:text-cyan-500"></i>
                         </div>
                     </div>
 
-                    <!-- Audience Selection -->
                     <div>
-                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-2 flex items-center gap-2">
-                            <i data-lucide="users" class="h-3 w-3 text-emerald-400"></i> 2. Who is in the Room?
-                        </label>
-                        <select id="audienceInput" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 outline-none transition-all appearance-none cursor-pointer hover:bg-slate-800">
-                            <option value="Board">Board of Directors (Strategy)</option>
-                            <option value="CFO">CFO / Finance (Money)</option>
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1">2. Who is in the Room?</label>
+                        <select id="audienceInput" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 outline-none cursor-pointer">
+                            <option value="Board">Board (Strategy)</option>
+                            <option value="CFO">CFO (Money)</option>
                             <option value="Employees">Employees (Culture)</option>
                         </select>
                     </div>
 
-                    <!-- Goal Input -->
                     <div>
-                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-2 flex items-center gap-2">
-                            <i data-lucide="target" class="h-3 w-3 text-amber-400"></i> 3. What is the 'Ask'?
-                        </label>
-                        <input type="text" id="goalInput" placeholder="e.g. Approve $200k budget for X" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 outline-none transition-all">
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1">3. What is the 'Ask'?</label>
+                        <input type="text" id="goalInput" placeholder="e.g. $200k budget" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 outline-none">
                     </div>
 
-                    <button onclick="handleTranslationRequest()" class="w-full bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-500 hover:to-emerald-500 text-white font-bold py-4 px-4 rounded-xl shadow-lg shadow-cyan-900/20 transform transition-all hover:scale-[1.02] flex items-center justify-center gap-2 mt-4 group">
-                        <i data-lucide="sparkles" class="h-5 w-5 group-hover:rotate-12 transition-transform"></i>
-                        Translate Risk ✨
+                    <button onclick="handleTranslationRequest()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 rounded-lg text-xs shadow-lg flex items-center justify-center gap-2 mt-2 transition-all hover:scale-[1.02]">
+                        <i data-lucide="sparkles" class="h-4 w-4"></i> Translate Risk
                     </button>
                 </div>
             </div>
 
-            <!-- Context Info -->
-            <div class="card p-6 rounded-2xl bg-slate-800/30 border-slate-700/30">
-                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">The V.I.S.A. Framework</h3>
-                <ul class="text-sm text-slate-400 space-y-3 font-mono">
-                    <li class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold text-xs border border-cyan-800">V</span>
-                        <span>Value (What we protect)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold text-xs border border-cyan-800">I</span>
-                        <span>Impact (The 4 Losses)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold text-xs border border-cyan-800">S</span>
-                        <span>Story (The Analogy)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold text-xs border border-cyan-800">A</span>
-                        <span>Action (The Ask)</span>
-                    </li>
+            <!-- V.I.S.A. Reference -->
+            <div class="card p-4 rounded-xl bg-slate-800/30 border-slate-700/30 flex-1">
+                <h3 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">V.I.S.A. Framework</h3>
+                <ul class="text-xs text-slate-400 space-y-3 font-mono">
+                    <li class="flex items-center gap-2"><span class="w-5 h-5 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold border border-cyan-800">V</span>Value Protected</li>
+                    <li class="flex items-center gap-2"><span class="w-5 h-5 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold border border-cyan-800">I</span>Impact (4 Losses)</li>
+                    <li class="flex items-center gap-2"><span class="w-5 h-5 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold border border-cyan-800">S</span>Story / Analogy</li>
+                    <li class="flex items-center gap-2"><span class="w-5 h-5 rounded flex items-center justify-center bg-cyan-900/50 text-cyan-400 font-bold border border-cyan-800">A</span>Action Required</li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Right Panel: Output / Welcome Screen -->
-        <div class="lg:col-span-8 space-y-6">
+            <!-- Footer -->
+            <div class="text-[10px] text-slate-600 text-center mt-auto">
+                &copy; 2025 Martin M. Kamethu
+            </div>
+        </aside>
+
+        <!-- MAIN STAGE -->
+        <section class="flex-1 relative overflow-hidden flex flex-col h-full rounded-xl bg-slate-900/50 border border-slate-800">
             
-            <!-- Enhanced Welcome / Guide Screen -->
-            <div id="emptyState" class="h-full flex flex-col items-center justify-center text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
-                <!-- Subtle animated background glow -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-
-                <div class="relative z-10 space-y-8 max-w-2xl">
-                    <div class="space-y-4">
-                        <div class="mx-auto bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-2xl w-20 h-20 flex items-center justify-center shadow-xl border border-slate-700">
-                            <i data-lucide="bot" class="h-10 w-10 text-cyan-400"></i>
-                        </div>
-                        <h2 class="text-3xl font-bold text-white">How to Use CyberLingua</h2>
-                        <p class="text-slate-400 text-lg">Stop reporting vulnerability counts. Start storytelling business impact.</p>
+            <!-- Empty State -->
+            <div id="emptyState" class="absolute inset-0 flex flex-col items-center justify-start pt-10 z-10 overflow-y-auto">
+                <div class="text-center max-w-2xl px-6">
+                    <div class="bg-slate-900 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 border border-slate-800 shadow-xl">
+                        <i data-lucide="brain-circuit" class="h-8 w-8 text-cyan-500"></i>
                     </div>
-
+                    <h2 class="text-xl font-bold text-white mb-2">Strategic Command Center</h2>
+                    <p class="text-slate-400 text-xs mb-8">Follow the steps below to generate a board-ready communication strategy.</p>
+                    
                     <!-- 3 Step Guide -->
-                    <div class="grid md:grid-cols-3 gap-4 text-left mt-8">
-                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                            <div class="flex items-center gap-2 text-cyan-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                <i data-lucide="mouse-pointer" class="h-4 w-4"></i> Step 1
+                    <div class="grid md:grid-cols-3 gap-4 text-left mb-8 w-full">
+                        <!-- Step 1 -->
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 hover:border-cyan-500/30 transition-colors group">
+                            <div class="text-cyan-400 font-bold text-[10px] uppercase mb-2 flex items-center gap-2">
+                                <i data-lucide="mouse-pointer" class="h-3 w-3"></i> Step 1: Threat
                             </div>
-                            <h3 class="text-white font-semibold mb-1">Select the Risk</h3>
-                            <p class="text-xs text-slate-400">Choose a trending threat like Agentic AI, or type your own custom topic.</p>
+                            <h3 class="text-white text-sm font-semibold mb-1">Identify the Risk</h3>
+                            <p class="text-[10px] text-slate-400 leading-relaxed">Select a known threat from the list, or use the 'Infinite Mode' to type any emerging technical risk.</p>
                         </div>
-                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                            <div class="flex items-center gap-2 text-emerald-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                <i data-lucide="users" class="h-4 w-4"></i> Step 2
+
+                        <!-- Step 2 -->
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 hover:border-emerald-500/30 transition-colors group">
+                            <div class="text-emerald-400 font-bold text-[10px] uppercase mb-2 flex items-center gap-2">
+                                <i data-lucide="users" class="h-3 w-3"></i> Step 2: Audience
                             </div>
-                            <h3 class="text-white font-semibold mb-1">Pick Persona</h3>
-                            <p class="text-xs text-slate-400">Calibrate the output for the Board (Strategy) or CFO (Money).</p>
+                            <h3 class="text-white text-sm font-semibold mb-1">Target the Stakeholder</h3>
+                            <p class="text-[10px] text-slate-400 leading-relaxed">Calibrate the language. Boards need Strategy, CFOs need Fiscal Impact, and Employees need Culture.</p>
                         </div>
-                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                            <div class="flex items-center gap-2 text-amber-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                <i data-lucide="zap" class="h-4 w-4"></i> Step 3
+
+                        <!-- Step 3 -->
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 hover:border-amber-500/30 transition-colors group">
+                            <div class="text-amber-400 font-bold text-[10px] uppercase mb-2 flex items-center gap-2">
+                                <i data-lucide="zap" class="h-3 w-3"></i> Step 3: Translation
                             </div>
-                            <h3 class="text-white font-semibold mb-1">Translate</h3>
-                            <p class="text-xs text-slate-400">Generate a "Campaign Kit" with Analogies, Scripts, and Stats.</p>
+                            <h3 class="text-white text-sm font-semibold mb-1">Generate Narrative</h3>
+                            <p class="text-[10px] text-slate-400 leading-relaxed">The engine converts the technical input into a "Campaign Kit" with analogies, scripts, and financial impacts.</p>
                         </div>
                     </div>
 
                     <!-- Pro Tip -->
-                    <div class="bg-slate-900/80 rounded-lg p-3 border border-slate-800 inline-flex items-center gap-3 text-left max-w-md mx-auto">
-                        <div class="bg-cyan-500/20 p-2 rounded-md">
+                    <div class="bg-slate-900/80 rounded-lg p-3 border border-slate-800 flex items-center gap-3 text-left w-full max-w-lg mx-auto">
+                        <div class="bg-cyan-500/10 p-2 rounded-md shrink-0">
                             <i data-lucide="key" class="h-4 w-4 text-cyan-400"></i>
                         </div>
                         <div>
                             <p class="text-xs font-bold text-slate-300 uppercase">Pro Tip: Infinite Mode</p>
-                            <p class="text-[10px] text-slate-500">Click <span class="text-white font-mono px-1 bg-slate-800 rounded">Settings ⚙️</span> and add your Gemini API Key to translate *any* custom risk topic instantly.</p>
+                            <p class="text-[10px] text-slate-500">Click <span class="text-white font-mono px-1 bg-slate-800 rounded cursor-pointer hover:text-cyan-400" onclick="toggleSettings()">Settings ⚙️</span> to add your Gemini API Key for custom topics.</p>
                         </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div id="progressContainer" class="hidden mt-8 w-full max-w-xs mx-auto">
+                        <div class="flex justify-between text-[10px] text-cyan-400 uppercase font-bold mb-1">
+                            <span id="progressLabel">Initializing...</span><span id="progressText">0%</span>
+                        </div>
+                        <div class="h-1.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                            <div id="progressBar" class="h-full bg-cyan-500 w-0 transition-all duration-300 ease-out shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-2 animate-pulse">Consulting the Cyber Story Architect...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Results Container (Hidden by default) -->
-            <div id="resultsContainer" class="hidden space-y-6 animate-fade-in">
+            <!-- RESULTS GRID -->
+            <div id="resultsContainer" class="hidden flex-col gap-3 h-full p-4 overflow-y-auto animate-fade-in">
                 
-                <!-- 1. The Analogy & Headline -->
-                <div class="card p-8 rounded-2xl border-l-4 border-cyan-500 relative overflow-hidden">
-                    <!-- Background decoration -->
-                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="flex justify-between items-start mb-6 relative z-10">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="bg-cyan-500/20 text-cyan-300 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">The Hook</span>
-                            </div>
-                            <h2 id="outHeadline" class="text-2xl md:text-3xl font-bold text-white leading-tight"></h2>
-                        </div>
-                        <button onclick="copyToClipboard('outHeadline')" class="p-2 hover:bg-slate-700/50 rounded-lg text-slate-400 hover:text-white transition-colors" title="Copy Hook"><i data-lucide="copy" class="h-5 w-5"></i></button>
+                <!-- Row 1: Headline & Analogy -->
+                <div class="grid lg:grid-cols-3 gap-3 min-h-[140px]">
+                    <div class="col-span-2 card p-4 rounded-xl border-l-4 border-cyan-500 relative flex flex-col justify-center">
+                        <span class="text-[9px] font-bold text-cyan-400 uppercase tracking-widest mb-1">The Hook</span>
+                        <h2 id="outHeadline" class="text-xl font-bold text-white leading-snug pr-8"></h2>
+                        <button onclick="copyToClipboard('outHeadline')" class="absolute top-3 right-3 text-slate-600 hover:text-white"><i data-lucide="copy" class="h-3 w-3"></i></button>
                     </div>
-                    
-                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-6 rounded-xl border border-slate-700/50 relative z-10">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="lightbulb" class="h-4 w-4 text-amber-400"></i>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">The Analogy</span>
+                    <div class="card p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="lightbulb" class="h-3 w-3 text-amber-400"></i>
+                            <span class="text-[9px] font-bold text-slate-400 uppercase">The Analogy</span>
                         </div>
-                        <p id="outAnalogy" class="text-lg text-slate-200 leading-relaxed font-serif italic"></p>
+                        <p id="outAnalogy" class="text-xs text-slate-300 italic leading-relaxed overflow-y-auto"></p>
                     </div>
                 </div>
 
-                <!-- 2. The 4 Impact Scenarios -->
-                <div class="card p-6 rounded-2xl">
-                    <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                        <div class="p-1.5 bg-emerald-500/10 rounded-lg">
-                            <i data-lucide="activity" class="h-5 w-5 text-emerald-400"></i>
-                        </div>
-                        The 4-Scenario Impact
-                    </h3>
-                    <div class="scenario-grid">
-                        <!-- Shutdown -->
-                        <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 hover:border-red-500/30 transition-colors group">
-                            <div class="flex items-center gap-2 mb-3 text-red-400">
-                                <i data-lucide="power-off" class="h-4 w-4 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-xs font-bold uppercase tracking-wider">The Shutdown</span>
-                            </div>
-                            <p id="outShutdown" class="text-sm text-slate-300 leading-relaxed"></p>
-                        </div>
-                        <!-- Cleanup -->
-                        <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 hover:border-orange-500/30 transition-colors group">
-                            <div class="flex items-center gap-2 mb-3 text-orange-400">
-                                <i data-lucide="wallet" class="h-4 w-4 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-xs font-bold uppercase tracking-wider">The Cleanup</span>
-                            </div>
-                            <p id="outCleanup" class="text-sm text-slate-300 leading-relaxed"></p>
-                        </div>
-                        <!-- Penalty -->
-                        <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 hover:border-yellow-500/30 transition-colors group">
-                            <div class="flex items-center gap-2 mb-3 text-yellow-400">
-                                <i data-lucide="scale" class="h-4 w-4 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-xs font-bold uppercase tracking-wider">The Penalty</span>
-                            </div>
-                            <p id="outPenalty" class="text-sm text-slate-300 leading-relaxed"></p>
-                        </div>
-                        <!-- Exodus -->
-                        <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 hover:border-purple-500/30 transition-colors group">
-                            <div class="flex items-center gap-2 mb-3 text-purple-400">
-                                <i data-lucide="users" class="h-4 w-4 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-xs font-bold uppercase tracking-wider">The Exodus</span>
-                            </div>
-                            <p id="outExodus" class="text-sm text-slate-300 leading-relaxed"></p>
-                        </div>
+                <!-- Row 2: 4 Impacts -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 shrink-0">
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 border-t-2 border-t-red-500/50 hover:border-red-500/80 transition-colors">
+                        <div class="flex items-center gap-1.5 mb-1 text-red-400"><i data-lucide="power-off" class="h-3 w-3"></i><span class="text-[9px] font-bold uppercase">Shutdown</span></div>
+                        <p id="outShutdown" class="text-[10px] text-slate-400 leading-tight"></p>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 border-t-2 border-t-orange-500/50 hover:border-orange-500/80 transition-colors">
+                        <div class="flex items-center gap-1.5 mb-1 text-orange-400"><i data-lucide="wallet" class="h-3 w-3"></i><span class="text-[9px] font-bold uppercase">Cleanup</span></div>
+                        <p id="outCleanup" class="text-[10px] text-slate-400 leading-tight"></p>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 border-t-2 border-t-yellow-500/50 hover:border-yellow-500/80 transition-colors">
+                        <div class="flex items-center gap-1.5 mb-1 text-yellow-400"><i data-lucide="scale" class="h-3 w-3"></i><span class="text-[9px] font-bold uppercase">Penalty</span></div>
+                        <p id="outPenalty" class="text-[10px] text-slate-400 leading-tight"></p>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 border-t-2 border-t-purple-500/50 hover:border-purple-500/80 transition-colors">
+                        <div class="flex items-center gap-1.5 mb-1 text-purple-400"><i data-lucide="users" class="h-3 w-3"></i><span class="text-[9px] font-bold uppercase">Exodus</span></div>
+                        <p id="outExodus" class="text-[10px] text-slate-400 leading-tight"></p>
                     </div>
                 </div>
 
-                <!-- 3. The Script & Data -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- The Script -->
-                    <div class="card p-6 rounded-2xl flex flex-col">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                                <div class="p-1.5 bg-pink-500/10 rounded-lg">
-                                    <i data-lucide="mic" class="h-5 w-5 text-pink-400"></i>
-                                </div>
-                                The Pitch Script
-                            </h3>
-                            <button onclick="copyToClipboard('outScript')" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg transition-colors border border-slate-700">Copy Script</button>
+                <!-- Row 3: Script & Evidence -->
+                <div class="grid lg:grid-cols-3 gap-3 flex-1 min-h-0">
+                    <!-- Script -->
+                    <div class="col-span-2 card p-4 rounded-xl flex flex-col h-full">
+                        <div class="flex justify-between items-center mb-2 shrink-0">
+                            <h3 class="text-xs font-bold text-white flex items-center gap-2"><i data-lucide="mic" class="h-3 w-3 text-pink-400"></i> The Script</h3>
+                            <button onclick="copyToClipboard('outScript')" class="text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-white px-2 py-1 rounded transition-colors">Copy</button>
                         </div>
-                        <div class="font-mono text-sm text-slate-300 bg-slate-950 p-5 rounded-xl border border-slate-800 h-full overflow-y-auto leading-relaxed shadow-inner">
-                            <p id="outScript" class="whitespace-pre-line"></p>
+                        <div class="font-mono text-xs text-slate-300 bg-slate-950 p-3 rounded-lg border border-slate-800 flex-1 overflow-y-auto">
+                            <p id="outScript" class="whitespace-pre-line leading-relaxed"></p>
                         </div>
                     </div>
 
-                    <!-- The Proof & Objection -->
-                    <div class="space-y-6">
-                        <!-- Data Hook -->
-                        <div class="card p-6 rounded-2xl">
-                            <h3 class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-widest">Evidence</h3>
-                            <div class="flex gap-4">
-                                <div class="shrink-0 p-3 bg-emerald-900/20 rounded-xl h-fit">
-                                    <i data-lucide="bar-chart-2" class="h-6 w-6 text-emerald-400"></i>
-                                </div>
-                                <div>
-                                    <p id="outData" class="text-white font-medium text-lg leading-snug"></p>
-                                </div>
+                    <!-- Evidence & Objection -->
+                    <div class="flex flex-col gap-3 h-full">
+                        <div class="card p-3 rounded-xl shrink-0">
+                            <h3 class="text-[9px] font-bold text-slate-500 mb-1 uppercase">Evidence</h3>
+                            <div class="flex gap-2 items-start">
+                                <i data-lucide="bar-chart-2" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <p id="outData" class="text-xs text-white font-medium leading-tight"></p>
                             </div>
                         </div>
-                        
-                        <!-- Objection Handler -->
-                        <div class="card p-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border-indigo-500/30">
-                            <h3 class="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
-                                <i data-lucide="shield-check" class="h-4 w-4"></i>
-                                Objection Handler
-                            </h3>
-                            
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">They ask:</p>
-                                    <p id="outObjectionQ" class="text-white italic bg-slate-800/50 p-3 rounded-lg border-l-2 border-slate-600">"..."</p>
+                        <div class="card p-3 rounded-xl bg-slate-800/50 border border-indigo-500/20 flex-1 overflow-hidden flex flex-col">
+                            <h3 class="text-[9px] font-bold text-slate-500 mb-1 uppercase shrink-0">Objection Handler</h3>
+                            <div class="space-y-2 overflow-y-auto">
+                                <div class="bg-slate-900/80 p-2 rounded border-l-2 border-slate-600">
+                                    <p id="outObjectionQ" class="text-xs text-slate-300 italic">"..."</p>
                                 </div>
-                                <div>
-                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">You answer:</p>
-                                    <p id="outObjectionA" class="text-emerald-400 font-semibold bg-emerald-900/10 p-3 rounded-lg border-l-2 border-emerald-500">"..."</p>
+                                <div class="bg-emerald-900/20 p-2 rounded border-l-2 border-emerald-500">
+                                    <p id="outObjectionA" class="text-xs text-emerald-300 font-medium">"..."</p>
                                 </div>
                             </div>
                         </div>
@@ -399,62 +326,36 @@
                 </div>
 
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-900/50 mt-auto backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 py-6 text-center">
-            <p class="text-slate-600 text-xs">
-                &copy; 2025 Martin M. Kamethu. All Rights Reserved. Powered by the V.I.S.A. Framework.
-            </p>
-        </div>
-    </footer>
-
     <!-- Settings Modal -->
-    <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4 transition-opacity duration-300">
-        <div class="bg-slate-900 border border-slate-700 p-6 rounded-2xl w-full max-w-md shadow-2xl transform transition-all scale-100">
+    <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-[100] flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 p-6 rounded-2xl w-full max-w-md shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-xl font-bold text-white">Engine Settings</h2>
                 <button onclick="toggleSettings()" class="text-slate-500 hover:text-white"><i data-lucide="x" class="h-5 w-5"></i></button>
             </div>
-            
             <div class="space-y-6">
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-2">Gemini API Key</label>
-                    <input type="password" id="apiKeyInput" placeholder="Paste Google API Key here..." class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-mono">
-                    <p class="text-xs text-slate-500 mt-2">Required for custom topics. Stored locally in your browser.</p>
-                    
-                    <!-- API Key Helper Link -->
-                    <p class="text-xs text-slate-500 mt-1">
-                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
-                            Get a free Gemini API Key here <i data-lucide="external-link" class="h-3 w-3"></i>
-                        </a>
-                    </p>
+                    <input type="password" id="apiKeyInput" placeholder="Paste Google API Key..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-cyan-500 outline-none text-sm font-mono">
+                    <div class="flex justify-between items-center mt-2">
+                        <p class="text-[10px] text-slate-500">Stored locally in browser.</p>
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[10px] text-cyan-400 hover:underline flex items-center gap-1">Get Free Key <i data-lucide="external-link" class="h-3 w-3"></i></a>
+                    </div>
                 </div>
-                
                 <div class="pt-4 border-t border-slate-800 flex justify-end">
                     <button onclick="saveSettings()" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">Save & Close</button>
-                </div>
-                
-                <div class="text-center">
-                    <p class="text-[10px] text-slate-600">OCH CyberLingua v2.6 | Build 2025.12.05</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Application Logic -->
     <script>
-        // Init
-        let apiKey = ""; // Runtime variable
+        let apiKey = ""; 
         document.addEventListener("DOMContentLoaded", () => {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            } else {
-                console.error("Lucide library failed to load.");
-            }
-            // Load saved key
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             const savedKey = localStorage.getItem("och_gemini_key");
             if(savedKey) {
                 apiKey = savedKey;
@@ -463,19 +364,8 @@
             }
         });
 
-        // UI Functions
-        function toggleSettings() {
-            const modal = document.getElementById('settingsModal');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                // Small animation delay
-                setTimeout(() => modal.firstElementChild.classList.remove('scale-95', 'opacity-0'), 10);
-            } else {
-                modal.firstElementChild.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => modal.classList.add('hidden'), 300);
-            }
-        }
-
+        function toggleSettings() { document.getElementById('settingsModal').classList.toggle('hidden'); }
+        
         function saveSettings() {
             const key = document.getElementById('apiKeyInput').value.trim();
             apiKey = key;
@@ -487,10 +377,10 @@
         function updateStatusIndicator(isOnline) {
             const statusDiv = document.getElementById('systemStatus');
             if (isOnline) {
-                statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> GEMINI ONLINE';
+                statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> GEMINI AI';
                 statusDiv.classList.replace('text-slate-500', 'text-cyan-400');
             } else {
-                statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> LOCAL MODE';
+                statusDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> LOCAL DB';
                 statusDiv.classList.replace('text-cyan-400', 'text-slate-500');
             }
         }
@@ -498,28 +388,9 @@
         function copyToClipboard(elementId) {
             const text = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(text);
-            const btn = event.currentTarget;
-            const originalIcon = btn.innerHTML;
-            
-            // Check if icon or text button
-            if (btn.querySelector('svg')) {
-                btn.innerHTML = '<i data-lucide="check" class="h-4 w-4 text-emerald-400"></i>';
-            } else {
-                btn.innerText = "Copied!";
-                btn.classList.add("text-emerald-400", "border-emerald-500/50");
-            }
-            
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-
-            setTimeout(() => {
-                btn.innerHTML = originalIcon;
-                if (!btn.querySelector('svg')) btn.classList.remove("text-emerald-400", "border-emerald-500/50");
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }, 2000);
         }
 
-        // --- CORE LOGIC ---
-
+        // --- LOGIC ENGINE ---
         const masterDB = {
             "Agentic AI": {
                 "Board": {
@@ -527,36 +398,36 @@
                     analogy: "Imagine hiring 1,000 interns, giving them all corporate credit cards, and then leaving the office for the weekend. That is Agentic AI without guardrails.",
                     shutdown: "Sales agents get stuck in loops, sending 50k emails in an hour. We have to kill the sales platform.",
                     cleanup: "Forensic audit of 10,000 auto-signed contracts and refunds.",
-                    penalty: "Liability for discriminatory hiring or lending decisions made by the bot (EU AI Act).",
+                    penalty: "Liability for discriminatory hiring decisions (EU AI Act).",
                     exodus: "High-value clients leave because they feel 'tricked' by our bots.",
                     data: "Air Canada (2024) was ruled liable for its chatbot's hallucinated refund policy.",
-                    script: "We are making a mistake treating AI as a tool. It is a workforce. We are about to deploy agents that can spend money and sign contracts. My proposal isn't to stop them—speed is survival. But we need to build an 'Observability Layer'. We need to be the ones holding the leash, or this digital workforce will bankrupt us by Monday morning.",
+                    script: "We are making a mistake treating AI as a tool. It is a workforce. We are about to deploy agents that can spend money and sign contracts. My proposal isn't to stop them—speed is survival. But we need to build an 'Observability Layer' to hold the leash.",
                     objQ: "Why do we need new budget? We just bought AI tools.",
                     objA: "We bought the car. Now I need budget for the brakes."
                 },
                 "CFO": {
                     hook: "We are deploying software that has the authority to spend unbudgeted money.",
-                    analogy: "The 'High-Speed Trader' effect. If an algorithm glitches on Wall Street, it loses millions in seconds. Agentic AI is an algorithm with access to our operational wallet.",
+                    analogy: "The 'High-Speed Trader' effect. Agentic AI is an algorithm with access to our operational wallet. If it glitches, it spends.",
                     shutdown: "Cloud bill spikes 500% in 4 hours due to a recursive agent loop.",
                     cleanup: "Cost to manually reverse thousands of auto-approved transactions.",
                     penalty: "Fines for automated GDPR violations at scale.",
                     exodus: "Lifetime Value drops as trust erodes from automated harassment.",
                     data: "Knight Capital lost $440M in 45 minutes due to an automated trading glitch.",
-                    script: "I am asking for this budget to prevent a financial hemorrhage. Right now, our AI agents have 'unlimited credit'. If they glitch, they spend. This investment puts a 'hard limit' on their authority, ensuring no automated process can exceed $500 without human eyes.",
+                    script: "I am asking for this budget to prevent a financial hemorrhage. Right now, our AI agents have 'unlimited credit'. If they glitch, they spend. This investment puts a 'hard limit' on their authority.",
                     objQ: "Can't we just tell IT to block the agents?",
                     objA: "If we block them, our competitors outpace us. We need to cap the risk, not kill the speed."
                 }
             },
             "Non-Human Identity": {
                 "Board": {
-                    hook: "We secured the front door with biometrics, but left the loading dock open.",
+                    hook: "We secured the front door, but left the loading dock open for invisible vendors.",
                     analogy: "The 'Unreturned Badges'. Imagine we fired 50 people but forgot to take their keys back. Now multiply that by 100. Those are our 'Ghost Bots'.",
-                    shutdown: "Critical systems fail silently when a 'service account' expires on a Saturday.",
+                    shutdown: "Critical systems fail silently when a 'service account' expires.",
                     cleanup: "Cost to rotate 5,000 keys manually after a breach.",
                     penalty: "Regulatory scrutiny on 'Lack of Access Control' (SOX/NIS2).",
                     exodus: "Enterprise clients terminate contracts because we are a supply chain risk.",
                     data: "Microsoft's 2024 breach happened via a dormant test account with no MFA.",
-                    script: "Look around this table. For every person here, there are 144 'machine users' on our network. They have keys, they move data, and they never sleep. But we don't monitor them. I need a mandate to treat these bots with the same rigor we treat employees: Inventory, Monitoring, and automated offboarding.",
+                    script: "Look around this table. For every person here, there are 144 'machine users' on our network. They have keys, they move data, and they never sleep. I need a mandate to treat these bots with the same rigor we treat employees.",
                     objQ: "Is this really a priority over Ransomware?",
                     objA: "This IS how ransomware gets in now. They don't break in; they log in as a machine."
                 },
@@ -568,59 +439,21 @@
                     penalty: "Audit failure: 'Who owns this bot?' We can't answer.",
                     exodus: "We become the 'Typhoid Mary' that infects our customers.",
                     data: "Machine identities now outnumber humans 144:1 (CyberArk 2025).",
-                    script: "This is an efficiency play as much as a security one. We have thousands of 'ghost accounts' cluttering our system. Managing them manually costs us $X in engineering hours per year. This tool automates that, reduces risk, and cleans up the books.",
+                    script: "This is an efficiency play as much as a security one. We have thousands of 'ghost accounts' cluttering our system. Managing them manually costs us $X in engineering hours per year. This tool automates that.",
                     objQ: "Why does this tool cost so much?",
                     objA: "It's cheaper than the 3 weeks of downtime when a certificate expires unnoticed."
                 }
             },
-            "Third-Party Risk": {
-                "CFO": {
-                    hook: "We are co-signing loans for 500 strangers.",
-                    analogy: "Connecting a vendor is like co-signing a loan. If they get hacked (default), the regulators come after *us*. We are currently co-signing for people we haven't checked in a year.",
-                    shutdown: "Supply chain paralysis. If they go down, we can't ship.",
-                    cleanup: "Unbudgeted cost to audit their breach effects on us.",
-                    penalty: "GDPR fine for data leaked by *their* mistake.",
-                    exodus: "Guilt by association. Brand damage equals the vendor's damage.",
-                    data: "30-35% of all breaches start with a vendor (Verizon 2024).",
-                    script: "I want to move us from 'Trust' to 'Verification'. Right now, we vet vendors once a year. That's like checking a borrower's bank account once and then giving them a loan for 12 months. I need a tool that checks their 'Credit Score' (Security Posture) daily. If they drop, we cut the connection before we get burned.",
-                    objQ: "Can't Legal just enforce this in contracts?",
-                    objA: "Contracts get us paid *after* the disaster. This tool prevents the disaster."
-                },
-                "Board": {
-                    hook: "Our castle wall is strong, but we just built a tunnel for 500 merchants.",
-                    analogy: "The 'Trojan Horse'. We have spent millions securing our perimeter, but every vendor is a potential wooden horse we wheel inside ourselves.",
-                    shutdown: "Critical operations halt if a SaaS provider gets ransomed.",
-                    cleanup: "Crisis PR to explain why our customer data was found on someone else's server.",
-                    penalty: "Liability for lack of 'Due Diligence' in partner selection.",
-                    exodus: "Customers see us as 'leaky' and move to a closed ecosystem.",
-                    data: "Target (2013) and SolarWinds (2020) proved vendors are the easiest way in.",
-                    script: "We are only as secure as our weakest vendor. Currently, we have 500 partners with direct access to our data. I am proposing a 'Zero Tolerance' vendor policy. If they don't meet our standards, they don't get our data. It will slow down procurement slightly, but it stops us from inheriting their risks.",
-                    objQ: "Will this slow down onboarding new suppliers?",
-                    objA: "Yes. But it's faster than recovering from a supply chain attack."
-                }
-            },
             "Ransomware": {
-                "CFO": {
-                    hook: "We are operating without Business Interruption Insurance for our digital factory.",
-                    analogy: "The 'Digital Lockout'. Imagine arriving at the factory and the locks have been changed, and the machines are bricked. Every minute we wait costs $10k.",
-                    shutdown: "Total revenue halt. Manufacturing/Sales floor goes dark.",
-                    cleanup: "Cash outlay for negotiators, fresh hardware, and overtime.",
-                    penalty: "SEC fines for failing to disclose 'Material Risk' previously.",
-                    exodus: "66% of consumers stop shopping after a fraud/outage event.",
-                    data: "Recovery costs (excluding ransom) averaged $2.73M in 2024 (Sophos).",
-                    script: "I'm not asking for budget to stop hackers; I'm asking for budget to ensure survivability. If we get hit today, we are down for 2 weeks. With this investment in immutable backups, we are down for 4 hours. This is an insurance premium against a total write-off of Q3 revenue.",
-                    objQ: "Why don't we just pay the ransom?",
-                    objA: "Paying doesn't guarantee data recovery, and it marks us as a 'payer' for future attacks."
-                },
                 "Board": {
                     hook: "It's not about data theft anymore; it's about extortion of our ability to function.",
                     analogy: "The 'Hostage Situation'. They don't steal the car; they take the keys and threaten to crush it if we don't pay.",
                     shutdown: "Operations freeze. We cannot ship, bill, or communicate.",
                     cleanup: "Reputation rebuilding costs exceed the technical costs.",
-                    penalty: "Class action lawsuits for negligence in data protection.",
+                    penalty: "Class action lawsuits for negligence.",
                     exodus: "Competitors use our downtime to steal market share.",
                     data: "MGM Resorts lost $100M in profit from one ransomware attack in 2023.",
-                    script: "We need to shift our mindset from 'Prevention' to 'Resilience'. The only metric that matters is 'Time to Recover'. Currently, that number is 14 days. I need your support to bring that down to 4 hours. That requires investment in 'Air-Gapped' backups.",
+                    script: "We need to shift our mindset from 'Prevention' to 'Resilience'. The only metric that matters is 'Time to Recover'. Currently, that number is 14 days. I need your support to bring that down to 4 hours.",
                     objQ: "I thought our firewall prevented this?",
                     objA: "Firewalls stop burglars. Ransomware is often an inside job or a stolen key."
                 }
@@ -654,131 +487,79 @@
             objA: "The cost of inaction is 10x the cost of this investment."
         };
 
-        // Main Handler
         async function handleTranslationRequest() {
             const topic = document.getElementById('topicInput').value;
             const audience = document.getElementById('audienceInput').value;
             const goal = document.getElementById('goalInput').value || "Risk Mitigation";
 
-            if (!topic) {
-                alert("Please select or type a Risk Topic.");
-                return;
-            }
+            if (!topic) { alert("Please select a Risk Topic."); return; }
 
-            // UI State: Loading
-            const container = document.getElementById('resultsContainer');
-            const emptyState = document.getElementById('emptyState');
-            container.classList.add('hidden');
-            emptyState.classList.remove('hidden', 'opacity-50');
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('resultsContainer').classList.add('hidden');
+            document.getElementById('emptyState').classList.remove('hidden');
+            document.getElementById('progressContainer').classList.remove('hidden');
             
-            // Progress Bar Logic
-            emptyState.innerHTML = `
-                <div class="w-full max-w-sm space-y-4">
-                    <div class="flex justify-between text-xs text-slate-400 uppercase font-bold tracking-wider">
-                        <span id="progressLabel">Initializing...</span><span id="progressText">0%</span>
-                    </div>
-                    <div class="h-2 bg-slate-800 rounded-full overflow-hidden relative border border-slate-700/50 shadow-inner">
-                        <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 to-emerald-500 w-0 transition-all duration-300 ease-out shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
-                    </div>
-                    <p class="text-xs text-slate-500 text-center animate-pulse flex items-center justify-center gap-2"><i data-lucide="cpu" class="h-3 w-3"></i>Consulting the Cyber Story Architect...</p>
-                </div>
-            `;
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-
             const progressBar = document.getElementById('progressBar');
             const progressText = document.getElementById('progressText');
             const progressLabel = document.getElementById('progressLabel');
-
-            // Animation Helper
-            const animateProgress = (pct, label) => {
-                progressBar.style.width = pct + "%";
-                progressText.innerText = pct + "%";
-                progressLabel.innerText = label;
+            
+            const animate = (w, t, l) => {
+                progressBar.style.width = w + "%";
+                progressText.innerText = t + "%";
+                progressLabel.innerText = l;
             };
 
-            // Check if Local
-            // We check if the topic exists in MasterDB AND if the specific audience (or Board fallback) exists
             const localData = masterDB[topic] ? (masterDB[topic][audience] || masterDB[topic]["Board"]) : null;
 
             if (localData) {
-                // LOCAL PATH
-                setTimeout(() => animateProgress(50, "Found in Local Database..."), 200);
-                setTimeout(() => animateProgress(100, "Rendering Assets..."), 600);
-                setTimeout(() => renderResults(localData), 1000);
+                animate(50, 50, "Found in Local DB...");
+                setTimeout(() => { animate(100, 100, "Rendering..."); }, 600);
+                setTimeout(() => { renderResults(localData); }, 1000);
             } else if (apiKey && apiKey.length > 10) {
-                // API PATH
-                setTimeout(() => animateProgress(20, "Topic not found locally..."), 100);
-                setTimeout(() => animateProgress(40, "Calling Gemini AI..."), 800);
-                
+                animate(30, 30, "Calling Gemini AI...");
                 try {
-                    const aiData = await callGeminiAPI(topic, audience, goal, (pct, msg) => animateProgress(pct, msg));
+                    const aiData = await callGeminiAPI(topic, audience, goal, (pct, msg) => animate(pct, pct, msg));
                     renderResults(aiData);
                 } catch (error) {
                     console.error(error);
-                    // alert("AI Error: " + error.message + ". Falling back to generic data.");
-                    renderResults(genericResponse); // Fallback
+                    alert("AI Error: " + error.message);
+                    renderResults(genericResponse);
                 }
             } else {
-                // NO KEY & NO LOCAL
-                setTimeout(() => animateProgress(100, "Database Miss..."), 500);
                 setTimeout(() => {
-                    alert("Topic not found in local DB and no API Key provided. Please enter a Google Gemini API Key in Settings for custom topics.");
+                    alert("Topic not in local DB. Please add Gemini API Key in Settings.");
                     renderResults(genericResponse);
                 }, 1000);
             }
         }
 
         async function callGeminiAPI(topic, audience, goal, progressCallback) {
-            // progressCallback(60, "Processing V.I.S.A. Logic...");
-            
             const systemPrompt = `
-                You are the OCH CyberLingua Engine. Convert this cybersecurity risk into a business narrative using the V.I.S.A. Framework (Value, Impact, Story, Action).
-                
-                INPUTS:
-                - Risk Topic: "${topic}"
-                - Target Audience: "${audience}"
-                - Goal: "${goal}"
-
-                INSTRUCTIONS:
-                1. ANALOGY: Use a physical world metaphor (construction, health, finance, warfare). No tech jargon.
-                2. DATA: Invent a realistic placeholder statistic if you don't have one (e.g., "Industry avg cost...").
-                3. IMPACT: Fill the 4 scenarios (Shutdown, Cleanup, Penalty, Exodus).
-                4. SCRIPT: Write a 45-second script for Martin M. Kamethu (The Guide) to speak to the Audience (The Hero).
-
-                OUTPUT JSON FORMAT ONLY (Do not include markdown backticks):
-                {
-                    "hook": "1 sentence headline using 'Yes, And' technique",
-                    "analogy": "The physical metaphor",
+                You are the OCH CyberLingua Engine. Convert this cybersecurity risk into a business narrative using the V.I.S.A. Framework.
+                INPUTS: Risk: "${topic}", Audience: "${audience}", Goal: "${goal}".
+                OUTPUT JSON ONLY: {
+                    "hook": "1 sentence headline",
+                    "analogy": "Physical world metaphor (no jargon)",
                     "shutdown": "Productivity loss description",
-                    "cleanup": "Immediate cash response cost",
-                    "penalty": "Regulatory or compliance fine",
-                    "exodus": "Reputation/trust loss",
-                    "data": "A relevant statistic",
-                    "script": "The elevator pitch script",
-                    "objQ": "The most likely difficult question they will ask",
-                    "objA": "The perfect winning answer"
+                    "cleanup": "Cash response cost",
+                    "penalty": "Regulatory fine",
+                    "exodus": "Reputation loss",
+                    "data": "Relevant statistic",
+                    "script": "45-second elevator pitch",
+                    "objQ": "Likely difficult question",
+                    "objA": "Winning answer"
                 }
             `;
-
-            // Use the standard model for users bringing their own keys
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
             const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: systemPrompt }] }]
-                })
+                body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt }] }] })
             });
-
-            progressCallback(90, "Parsing Response...");
-
-            if (!response.ok) throw new Error("Gemini API Request Failed");
-
+            progressCallback(90, "Parsing...");
+            if (!response.ok) throw new Error("API Failed");
             const data = await response.json();
             const text = data.candidates[0].content.parts[0].text;
-            
-            // Clean JSON string (remove markdown code blocks if present)
             const jsonString = text.replace(/```json/g, '').replace(/```/g, '').trim();
             return JSON.parse(jsonString);
         }
@@ -795,76 +576,13 @@
             document.getElementById('outObjectionQ').innerText = `"${data.objQ}"`;
             document.getElementById('outObjectionA').innerText = `"${data.objA}"`;
 
-            const emptyState = document.getElementById('emptyState');
-            const container = document.getElementById('resultsContainer');
-            
-            emptyState.classList.add('hidden');
-            container.classList.remove('hidden');
-            
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('resultsContainer').classList.remove('hidden');
             if (typeof lucide !== 'undefined') lucide.createIcons();
             
-            // Reset Empty State HTML for next run
-            emptyState.innerHTML = `
-                <div class="h-full flex flex-col items-center justify-center text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
-                    <!-- Subtle animated background glow -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-
-                    <div class="relative z-10 space-y-8 max-w-2xl">
-                        <div class="space-y-4">
-                            <div class="mx-auto bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-2xl w-20 h-20 flex items-center justify-center shadow-xl border border-slate-700">
-                                <i data-lucide="bot" class="h-10 w-10 text-cyan-400"></i>
-                            </div>
-                            <h2 class="text-3xl font-bold text-white">How to Use CyberLingua</h2>
-                            <p class="text-slate-400 text-lg">Stop reporting vulnerability counts. Start storytelling business impact.</p>
-                        </div>
-
-                        <!-- 3 Step Guide -->
-                        <div class="grid md:grid-cols-3 gap-4 text-left mt-8">
-                            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                                <div class="flex items-center gap-2 text-cyan-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                    <i data-lucide="mouse-pointer" class="h-4 w-4"></i> Step 1
-                                </div>
-                                <h3 class="text-white font-semibold mb-1">Select the Risk</h3>
-                                <p class="text-xs text-slate-400">Choose a trending threat like Agentic AI, or type your own custom topic.</p>
-                            </div>
-                            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                                <div class="flex items-center gap-2 text-emerald-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                    <i data-lucide="users" class="h-4 w-4"></i> Step 2
-                                </div>
-                                <h3 class="text-white font-semibold mb-1">Pick Persona</h3>
-                                <p class="text-xs text-slate-400">Calibrate the output for the Board (Strategy) or CFO (Money).</p>
-                            </div>
-                            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                                <div class="flex items-center gap-2 text-amber-400 mb-2 font-bold text-sm uppercase tracking-wider">
-                                    <i data-lucide="zap" class="h-4 w-4"></i> Step 3
-                                </div>
-                                <h3 class="text-white font-semibold mb-1">Translate</h3>
-                                <p class="text-xs text-slate-400">Generate a "Campaign Kit" with Analogies, Scripts, and Stats.</p>
-                            </div>
-                        </div>
-
-                        <!-- Pro Tip -->
-                        <div class="bg-slate-900/80 rounded-lg p-3 border border-slate-800 inline-flex items-center gap-3 text-left max-w-md mx-auto">
-                            <div class="bg-cyan-500/20 p-2 rounded-md">
-                                <i data-lucide="key" class="h-4 w-4 text-cyan-400"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold text-slate-300 uppercase">Pro Tip: Infinite Mode</p>
-                                <p class="text-[10px] text-slate-500">Click <span class="text-white font-mono px-1 bg-slate-800 rounded">Settings ⚙️</span> and add your Gemini API Key to translate *any* custom risk topic instantly.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            emptyState.classList.add('opacity-50');
-            // Re-initialize icons for the reset state
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            document.getElementById('progressContainer').classList.add('hidden');
+            document.getElementById('progressBar').style.width = '0%';
         }
     </script>
 </body>
 </html>
-
-
-
-
-
