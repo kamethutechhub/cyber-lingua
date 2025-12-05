@@ -1,7 +1,7 @@
 <!-- 
     OCH CyberLingua | The C-Suite Translator
     Built by Martin M. Kamethu for Ongoza Cyber Hub
-    Version 2.3 (Layout Adjusted)
+    Version 2.8 (Standard Layout + Hero Explainer)
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -136,6 +136,18 @@
         </div>
     </header>
 
+    <!-- NEW: Hero / Explainer Section (Added Here) -->
+    <section class="bg-slate-950 border-b border-slate-800 py-6">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-2xl font-bold text-white mb-2">
+                Bridge the Gap Between the <span class="text-cyan-400">Server Room</span> & the <span class="text-emerald-400">Boardroom</span>
+            </h2>
+            <p class="text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto">
+                Stop reporting noise. Operationalize the <strong class="text-white">V.I.S.A. Framework</strong> to turn technical threats into business narratives.
+            </p>
+        </div>
+    </section>
+
     <!-- Main Content -->
     <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full gap-8 grid lg:grid-cols-12">
         
@@ -144,7 +156,7 @@
             <div class="card p-6 rounded-2xl border-t-4 border-t-cyan-500/50">
                 <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                     <i data-lucide="sliders" class="h-5 w-5 text-cyan-400"></i>
-                    Define the Inputs to Your Desired Strategic Narrative
+                    Configure Strategic Narrative
                 </h2>
                 
                 <!-- Topic Selection (Combo Box) -->
@@ -222,7 +234,7 @@
         <div class="lg:col-span-8 space-y-6">
             
             <!-- Enhanced Welcome / Guide Screen -->
-            <div id="emptyState" class="h-full flex flex-col items-center justify-start pt-10 text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
+            <div id="emptyState" class="h-full flex flex-col items-center justify-center text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
                 <!-- Subtle animated background glow -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
 
@@ -424,6 +436,13 @@
                     <label class="block text-sm font-medium text-slate-300 mb-2">Gemini API Key</label>
                     <input type="password" id="apiKeyInput" placeholder="Paste Google API Key here..." class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-mono">
                     <p class="text-xs text-slate-500 mt-2">Required for custom topics. Stored locally in your browser.</p>
+                    
+                    <!-- API Key Helper Link -->
+                    <p class="text-xs text-slate-500 mt-1">
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
+                            Get a free Gemini API Key here <i data-lucide="external-link" class="h-3 w-3"></i>
+                        </a>
+                    </p>
                 </div>
                 
                 <div class="pt-4 border-t border-slate-800 flex justify-end">
@@ -431,7 +450,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <p class="text-[10px] text-slate-600">OCH CyberLingua v2.0 | Build 2025.12.04</p>
+                    <p class="text-[10px] text-slate-600">OCH CyberLingua v2.6 | Build 2025.12.05</p>
                 </div>
             </div>
         </div>
@@ -613,7 +632,7 @@
                     penalty: "Class action lawsuits for negligence in data protection.",
                     exodus: "Competitors use our downtime to steal market share.",
                     data: "MGM Resorts lost $100M in profit from one ransomware attack in 2023.",
-                    script: "We need to shift our mindset from 'Prevention' to 'Resilience'. We will get hit. The only metric that matters is 'Time to Recover'. Currently, that number is 14 days. I need your support to bring that down to 4 hours. That requires investment in 'Air-Gapped' backups.",
+                    script: "We need to shift our mindset from 'Prevention' to 'Resilience'. The only metric that matters is 'Time to Recover'. Currently, that number is 14 days. I need your support to bring that down to 4 hours. That requires investment in 'Air-Gapped' backups.",
                     objQ: "I thought our firewall prevented this?",
                     objA: "Firewalls stop burglars. Ransomware is often an inside job or a stolen key."
                 }
@@ -798,7 +817,7 @@
             
             // Reset Empty State HTML for next run
             emptyState.innerHTML = `
-                <div class="h-full flex flex-col items-center justify-start pt-12 text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
+                <div class="h-full flex flex-col items-center justify-center text-center p-8 md:p-12 border-2 border-dashed border-slate-800 rounded-3xl opacity-100 min-h-[500px] relative overflow-hidden">
                     <!-- Subtle animated background glow -->
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
 
@@ -856,5 +875,3 @@
     </script>
 </body>
 </html>
-
-
